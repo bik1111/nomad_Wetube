@@ -1,13 +1,5 @@
 const userRouter = express.Roter();
-
-const handleUser = (req,res) => {
-    res.send("USER")
-}
-
-const handleEditUser = (req,res) => {
-    res.send("EDIT USER")
-}
-
+const { handleUser, handleEditUser } = require('../controllers/usercontroller');
 
 userRouter.get('/:id', handleUser);
 userRouter.get('/edit-profile', handleEditUser);
