@@ -1,7 +1,7 @@
-const handleUser = (req,res) => {
+module.exports.handleUser = (req,res) => {
     res.send(`USER # ${req.parms.id}`)
 }
 
-const handleEditUser = (req,res) => {
+module.exports.handleEditUser = (req,res) => {
     res.send("EDIT USER")
 }

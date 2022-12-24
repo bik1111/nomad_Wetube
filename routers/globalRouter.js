@@ -1,5 +1,6 @@
+const express =  require("express");
 const globalRouter = express.Router();
-const { handleHome, handleTrend, handleNew, handleJoin, handleLogin } = require('../controllers/globalcontroller');
+const {handleHome, handleTrend, handleJoin, handleNew, handleLogin } = require('../controllers/globalcontroller')
 
 
 globalRouter.get('/' , handleHome);
@@ -9,4 +10,4 @@ globalRouter.get('/join', handleJoin);
 globalRouter.get('/login', handleLogin);
 
 
-export default globalRouter;
+module.exports = globalRouter;

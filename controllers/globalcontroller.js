@@ -1,19 +1,18 @@
-const handleHome = (req,res) => {
+module.exports.handleHome = (req,res) => {
     res.send('Home')
 } 
 
-const handleTrend = (req,res) => {
+module.exports.handleTrend = (req,res) => {
     res.send('TREND')
 }
 
-const handleJoin= (req,res) => {
+module.exports.handleJoin= (req,res) => {
     res.send('JOIN')
 } 
 
-const handleNew = (req,res) => {
+module.exports. handleNew = (req,res) => {
     res.send("NEW")
 }
-
-const handleLogin = (req,res) => {
+module.exports.handleLogin = (req,res) => {
     res.send("LOGIN")
 }

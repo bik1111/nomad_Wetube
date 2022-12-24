@@ -10,6 +10,7 @@
   "keywords": [],
   "description": "",
   "dependencies": {
-    "experss": "^0.0.1-security"
+    "experss": "^0.0.1-security",
+    "nodemon": "^2.0.20"
   }
 }
