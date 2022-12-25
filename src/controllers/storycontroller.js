@@ -1,10 +1,14 @@
 
+
+
+
+
 module.exports.handleWatch= (req,res) => {
-    res.send(`I AM WATHCING # ${req.params.id}'S VIDEO`)
+    res.render('watch', { pageTitle : "Watch" })
 }
 
 module.exports.handleEdit = (req,res) => {
-    res.send(`EDIT STORY (ID : # ${req.params.id})`)
+    res.render('edit', { pageTitle : "Edit" })
 }
 
 module.exports.handleDelete = (req,res) => {

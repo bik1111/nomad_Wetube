@@ -1,6 +1,6 @@
-const globalRouter = require('./routers/globalRouter')
-const userRouter = require("./routers/userRouter")
-const storyRouter = require("./routers/storyRouter")
+const globalRouter = require('./src/routers/globalRouter')
+const userRouter = require("./src/routers/userRouter")
+const storyRouter = require("./src/routers/storyRouter")
 
 const express =  require("express");
 const morgan = require("morgan");
@@ -13,6 +13,9 @@ const logger = morgan("dev");
 app.use(logger);
 
 
+app.engine('pug', require('pug').__express)
+app.set('view engine', "pug")
+app.set('views', process.cwd() + '/src/views')
 app.use('/', globalRouter)
 app.use('/users', userRouter)
 app.use('/stories', storyRouter)
