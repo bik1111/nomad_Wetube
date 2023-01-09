@@ -6,7 +6,17 @@ html(lang="ko")
     body
         header
             h1=pageTitle
+            nav
+                ul
+                    li
+                        a(href="/stories/upload") Upload
+                    li
+                        a(href="/trending") Home
+                    li 
+                        a(href="/search") Search
+                    li
+                        a(href="/join") Join
+                    
         main
             block content
     include partials/footer.pug
-    include partials/footer
