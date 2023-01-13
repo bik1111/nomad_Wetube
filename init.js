@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const mydb = require('./db');
 const Video = require('./src/models/Video');
 const User = require('./src/models/User');

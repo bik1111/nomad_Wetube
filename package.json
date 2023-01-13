@@ -11,8 +11,12 @@
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.3",
     "experss": "^0.0.1-security",
+    "express-session": "^1.17.3",
     "mongoose": "^6.8.2",
+    "node-fetch": "^2.6.8",
     "nodemon": "^2.0.20",
     "pug": "^3.0.2"
   }
