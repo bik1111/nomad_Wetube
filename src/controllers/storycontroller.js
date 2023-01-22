@@ -47,24 +47,29 @@ module.exports.postEdit = async (req,res) => {
 module.exports.getUpload = (req, res) => {
     return res.render("upload", { pageTitle: "Upload Video" });
   };
+  
 
 
 module.exports.postUpload = async (req, res) => {
-    const {title, description, hashtags} = req.body;
+    const file = req.file;
+    const { title, description, hashtags } = req.body;
     try {
-        await Video.create({
-            title,
-            description,
-            hashtags: Video.formatHashtags(hashtags),
-        });
-        return res.redirect('/trending')
-    } catch(error) {
-        return res.satus(400).render("upload", {
-            pageTitle: "Upload Video",
-            errorMessage: error._message,
-        });
+      await Video.create({
+        title,
+        description,
+        fileUrl: file.path,
+        hashtags: Video.formatHashtags(hashtags),
+      });
+      return res.redirect("/");
+    } catch (error) {
+      console.log(error);
+      return res.status(400).render("upload", {
+        pageTitle: "Upload Video",
+        errorMessage: error._message,
+      });
     }
-};
+  };
+  
 
 
 module.exports.deleteStory = async(req,res) => {

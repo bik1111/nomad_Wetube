@@ -14,15 +14,11 @@ module.exports.handleTrend = async (req,res) => {
   }
 }
 
-module.exports.handleJoin= (req,res) => {
-    res.send('JOIN')
-} 
 
 
 
-module.exports.getLogin = (req,res) => {
-    res.render('login', {pageTitle: "Login"})
-}
+module.exports.getLogin = (req, res) =>
+res.render("login", { pageTitle: "Login" });
 
 
 module.exports.postLogin = async (req, res) => {
@@ -44,5 +40,6 @@ module.exports.postLogin = async (req, res) => {
   }
   req.session.loggedIn = true;
   req.session.user = user;
+  console.log(req.session);
   return res.redirect("/");
 };

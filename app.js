@@ -7,9 +7,10 @@ const express =  require("express");
 const morgan = require("morgan");
 const session =require('express-session');
 const MongoStore = require('connect-mongo')
+const multer = require('multer');
 const mongoose = require('mongoose')
 const { localsMiddleware } = require("./middleware");
- 
+
 
 const app = express();
 const logger = morgan("dev");
@@ -18,9 +19,8 @@ app.use(logger);
 
 app.use(express.urlencoded({ extended:true }))
 app.engine('pug', require('pug').__express)
-app.set('view engine', "pug")
-app.set('views', process.cwd() + '/src/views')
-
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
 
 
 //세션 미들웨어
@@ -35,6 +35,7 @@ app.use(
   );
 //app.use(localsMiddleware)가 app.use(session) 다음으로 왔기에 req.session에 접근가능.
 app.use(localsMiddleware)
+app.use("/uploads", express.static("uploads"));
 app.use('/', rootRouter)
 app.use('/users', userRouter)
 app.use('/stories', storyRouter)
