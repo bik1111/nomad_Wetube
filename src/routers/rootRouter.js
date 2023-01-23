@@ -1,14 +1,23 @@
-const express =  require("express");
-const { publicOnlyMiddleware } = require("../../middleware");
+
+import express from "express";
+import {
+  getJoin,
+  postJoin,
+  getLogin,
+  postLogin,
+} from "../controllers/userController.js";
+import { home, search } from "../controllers/videoController.js";
+import { publicOnlyMiddleware } from "../../middleware.js";
+
 const rootRouter = express.Router();
-const { handleTrend, getLogin, postLogin } = require('../controllers/rootcontroller')
-const { search } = require('../controllers/storycontroller');
-const { getJoin, postJoin } = require('../controllers/usercontroller');
 
+rootRouter.get("/", home);
+rootRouter.route("/join").all(publicOnlyMiddleware).get(getJoin).post(postJoin);
+rootRouter
+  .route("/login")
+  .all(publicOnlyMiddleware)
+  .get(getLogin)
+  .post(postLogin);
+rootRouter.get("/search", search);
 
-rootRouter.get('/', handleTrend);
-rootRouter.route('/join').all(publicOnlyMiddleware).get(getJoin).post(postJoin);
-rootRouter.route('/login').all(publicOnlyMiddleware).get(getLogin).post(postLogin)
-rootRouter.get('/search', search)
-
-module.exports = rootRouter;
+export default rootRouter;
